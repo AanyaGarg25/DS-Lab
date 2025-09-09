@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+bool isBalanced(string expr) {
+    int count = 0; 
+
+    for (char ch : expr) {
+        if (ch == '(') {
+            count++;
+        }
+        else if (ch == ')') {
+            count--;
+            if (count < 0) 
+                return false;
+        }
+    }
+
+    return count == 0; 
+}
+
+int main() {
+    string expr;
+    cout << "Enter an expression: ";
+    cin >> expr;
+
+    if (isBalanced(expr))
+        cout << "Balanced" << endl;
+    else
+        cout << "Not Balanced" << endl;
+
+    return 0;
+}
+
